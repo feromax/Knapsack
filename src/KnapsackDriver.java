@@ -24,7 +24,7 @@ public class KnapsackDriver {
 				System.out.println(i);
 				totalItemWeight += i.getWeight();
 			}
-			System.out.println("\n(total weight of items = " + totalItemWeight + "lbs)\n");
+			System.out.println("\n(total weight of items = " + totalItemWeight + " lbs)\n");
 			
 			System.out.print("How many pounds can your backpack hold? (-1 to quit)  ");
 			try {
@@ -35,9 +35,15 @@ public class KnapsackDriver {
 			
 			if ( choice >= 0 ) {
 				Knapsack bag = new Knapsack(choice);
+
+				double weightUsed = bag.pack(stuff); //pack the bag!
+				weightUsed = Math.round(100*weightUsed)/100.0;
+
+				double percentUsed = 100*weightUsed/bag.getCapacity();
+				percentUsed = Math.round(10*percentUsed)/10.0; //round to nearest tenth
 		
-				System.out.println("Weight used is " + bag.pack(stuff) + "lbs out of "
-						+ bag.getCapacity() + "lbs.");
+				System.out.println("Weight used is " + weightUsed + " lbs out of "
+						+ bag.getCapacity() + " lbs, " + percentUsed + "%");
 				System.out.print("Contents:  " + bag.getContents() + "\n\n");
 			}
 				

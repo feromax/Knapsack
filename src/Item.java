@@ -21,7 +21,7 @@ public class Item {
 	}
 
 	public String toString() {
-		return name + " (" + weight + "lbs)";
+		return name + " (" + weight + " lbs)";
 	}
 
 }
